@@ -1,0 +1,13 @@
+{% extends "base.html" %}
+{% block title %}
+  {{ news.title }}
+{% endblock title %}
+{% block content %}
+  <h1>{{ news.title }}</h1>
+  <p>
+    Дата создания: <span class="bg-primary border border-0 rounded text-white p-1">{{ news.created_date.strftime('%d.%m.%Y') }}</span>
+    Категория: <a href="{{ url_for('news_in_category', id=news.category.id) }}" class="bg-primary border border-0 rounded text-white p-1">{{ news.category.title }}</a>
+  </p>
+  <hr>
+  <p>{{ news.text }}</p>
+{% endblock content %}

@@ -1,0 +1,24 @@
+{% extends "base.html" %}
+{% block title %}
+  {{ category.title }}
+{% endblock title%}
+{% block content %}
+
+  <h1>Категория: {{ category.title }}</h1>
+  <p class="card-subtitle">Количество новостей в категории: <span class="bg-primary border border-0 rounded text-white p-1">{{ news|length }}</span></p>
+  <hr>
+  {% for item in news %}
+    <div class="card mb-3">
+      <div class="card-body">
+        <h5 class="card-title">{{ item.title }}</h5>
+        <p class="card-text">{{ item.text|truncate(100) }}</p>
+        <a href="{{ url_for('news_detail', id=item.id) }}" class="btn btn-primary">Читать далее</a>
+      </div>
+      <div class="card-footer">
+        Категория: <a href="{{ url_for('news_in_category', id=item.category.id) }}">{{ item.category.title }}</a>
+      </div>
+    </div>
+  {% else %}
+    <p class="card-text">Новостей пока нет!</p>
+  {% endfor %}
+{% endblock content %}
