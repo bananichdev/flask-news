@@ -15,7 +15,8 @@
 2. Создайте и активируйте виртуальное окружение
 ```commandline
 python -m venv venv
-source venv/Scripts/activate
+source venv/Scripts/activate (для Windows)
+source venv/bin/activate (для Linux)
 ```
 3. Установите зависимости
 ```commandline
